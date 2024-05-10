@@ -2,11 +2,14 @@ class_name StateMachine
 extends Node
 
 @export var initial_state : = NodePath()
+var state : State = null
 
-@onready var state : State = initial_state == null if get_node(initial_state) else self.get_child(0)
 func _ready() -> void:
 	await owner.ready
 	# The state machine assigns itself to the State objects' state_machine property.
+	# state = (ionitial_state == null if initial_state else self.get_child(0))
+	# state = get_node(initial_state)
+	state = get_node(initial_state) if initial_state != null else self.get_child(0);
 	for child in get_children():
 		child.state_machine = self as StateMachine
 	state.enter()

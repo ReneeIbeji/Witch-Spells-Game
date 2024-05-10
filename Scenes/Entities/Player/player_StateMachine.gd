@@ -1,3 +1,0 @@
-class_name player_StateMachine
-extends StateMachine
-

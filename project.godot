@@ -11,15 +11,21 @@ config_version=5
 [application]
 
 config/name="Witch spells game"
-run/main_scene="res://Scenes/Levels/Level_Test.tscn"
+run/main_scene="res://Scenes/!Main/Game.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Scenes/!Main/Singletons/Global.tscn"
+GameVariables="*res://scripts/GameVariables.gd"
 
 [file_customization]
 
 folder_colors={
 "res://Assets/": "yellow",
 "res://Scenes/": "teal",
+"res://Scenes/!Main/": "orange",
 "res://Scenes/Entities/Player/": "blue"
 }
 

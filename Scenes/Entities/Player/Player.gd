@@ -5,6 +5,8 @@ var Movement : EntityMovement
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameVariables.PlayerNode = self
+	
 	for child in self.get_children():
 		if child is EntityMovement:
 			Movement = child

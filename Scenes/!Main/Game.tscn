@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdj4ycw2kror"]
+
+[ext_resource type="PackedScene" uid="uid://c7mjmtl7ymee3" path="res://Scenes/Levels/Level_Test.tscn" id="1_4mkpd"]
+[ext_resource type="Script" path="res://Scenes/!Main/main.gd" id="1_17umb"]
+[ext_resource type="PackedScene" uid="uid://ddqbu6qtmex1o" path="res://Scenes/Entities/Player/player.tscn" id="2_xcsgu"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_17umb")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Test level" parent="World" instance=ExtResource("1_4mkpd")]
+
+[node name="Player" parent="World" instance=ExtResource("2_xcsgu")]
+position = Vector2(712, 345)
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
