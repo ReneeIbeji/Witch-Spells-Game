@@ -1,29 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddqbu6qtmex1o"]
+[gd_scene load_steps=11 format=3 uid="uid://ddqbu6qtmex1o"]
 
-[ext_resource type="Script" path="res://Scenes/Entities/Player/Player.gd" id="1_4p474"]
+[ext_resource type="Script" path="res://Scenes/Entities/Player/Player.gd" id="1_02c8r"]
 [ext_resource type="Texture2D" uid="uid://b2d8chun5wo47" path="res://icon.png" id="1_wc45e"]
 [ext_resource type="PackedScene" uid="uid://k7c4xrfdsytx" path="res://Scenes/Entity systems/Movement system/entity_movement.tscn" id="3_15cbk"]
 [ext_resource type="Script" path="res://scripts/Statemachine/Statemachine.gd" id="4_8g3my"]
-[ext_resource type="Script" path="res://Scenes/Entities/Player/Idle.gd" id="5_wv7e2"]
+[ext_resource type="PackedScene" uid="uid://yowr31ouivqs" path="res://Scenes/Entities/Player/potionThrower.tscn" id="4_n2kfp"]
+[ext_resource type="PackedScene" uid="uid://uca5j0sqca4w" path="res://Scenes/Entities/Player/Potions/testPotion.tscn" id="5_2en5c"]
+[ext_resource type="Script" path="res://Scenes/Entities/Player/Player_Normal.gd" id="5_p8y61"]
+[ext_resource type="Script" path="res://Scenes/Entities/Player/Player_PotionThrown.gd" id="6_rxkab"]
+[ext_resource type="Script" path="res://Scenes/Entity systems/Health system/EntityHealth.gd" id="9_y64nf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2mbq"]
-size = Vector2(131.5, 133)
+size = Vector2(99, 91)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_4p474")
+z_index = 3
+script = ExtResource("1_02c8r")
 
 [node name="Test sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_wc45e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, -0.5)
+position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_x2mbq")
 
 [node name="EntityMovement" parent="." instance=ExtResource("3_15cbk")]
+
+[node name="PotionThrower" parent="." instance=ExtResource("4_n2kfp")]
+testPotion = ExtResource("5_2en5c")
 
 [node name="Statemachine" type="Node" parent="."]
 script = ExtResource("4_8g3my")
 initial_state = NodePath("Player_Normal")
 
 [node name="Player_Normal" type="Node" parent="Statemachine"]
-script = ExtResource("5_wv7e2")
+script = ExtResource("5_p8y61")
+
+[node name="Player_PotionThrown" type="Node" parent="Statemachine"]
+script = ExtResource("6_rxkab")
+
+[node name="EntityHealth" type="Node" parent="."]
+script = ExtResource("9_y64nf")
+MAXHEALTH = 20

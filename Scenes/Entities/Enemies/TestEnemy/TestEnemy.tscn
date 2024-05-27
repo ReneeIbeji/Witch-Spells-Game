@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://ydnglhodsxqs"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Enemies/TestEnemy/TestEnemy.gd" id="1_crtsm"]
+[ext_resource type="Script" path="res://Scenes/Entity systems/Health system/AttackResource.gd" id="2_asd31"]
+[ext_resource type="Texture2D" uid="uid://b2d8chun5wo47" path="res://icon.png" id="2_ku7f5"]
+[ext_resource type="PackedScene" uid="uid://k7c4xrfdsytx" path="res://Scenes/Entity systems/Movement system/entity_movement.tscn" id="3_vr8mv"]
+[ext_resource type="Script" path="res://Scenes/Entity systems/Health system/EntityHealth.gd" id="4_lljy2"]
+
+[sub_resource type="Resource" id="Resource_kh2oo"]
+script = ExtResource("2_asd31")
+HealthChange = -5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lhe7"]
+size = Vector2(102.5, 103.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4cgi"]
+size = Vector2(151, 149)
+
+[node name="TestEnemy" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_crtsm")
+attack = SubResource("Resource_kh2oo")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_2lhe7")
+debug_color = Color(0.992157, 0, 0.247059, 0.419608)
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 0.435294, 0.235294, 1)
+texture = ExtResource("2_ku7f5")
+
+[node name="EntityMovement" parent="." instance=ExtResource("3_vr8mv")]
+
+[node name="EntityHealth" type="Node" parent="."]
+script = ExtResource("4_lljy2")
+MAXHEALTH = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 3.5)
+shape = SubResource("RectangleShape2D_q4cgi")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_shape_entered" from="HitBox" to="." method="_on_hit_box_body_shape_entered"]

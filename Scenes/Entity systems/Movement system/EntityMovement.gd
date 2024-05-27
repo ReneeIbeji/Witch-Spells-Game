@@ -7,6 +7,16 @@ var movementDirection : Vector2
 
 @onready var body : Entity = get_parent() as Entity
 
+func _ready() -> void:
+	var entity : Entity = get_parent() as Entity
+	entity.MovementSystem = self
+	print("Entity Movement ready")
+
+func reset() -> void:
+	movementDirection = Vector2.ZERO
+	targetMovement = Vector2.ZERO
+	body.velocity = Vector2.ZERO
+
 func moveInDirection(movement : Vector2) -> void:
 	targetMovement = movement
 
@@ -16,4 +26,8 @@ func carryOutMovement(delta : float) -> void:
 	
 	body.velocity = movementDirection * body.speed
 	body.velocity -= body.velocity * body.friction
+	
 	body.move_and_slide()
+
+func applyKnockback(direction : Vector2, force : float) -> void:
+	movementDirection += direction * force

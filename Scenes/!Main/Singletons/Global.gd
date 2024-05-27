@@ -6,3 +6,6 @@ func loadScene():
 
 func pauseGame():
 	pass
+
+func PlayerDied():
+	GameVariables.WorldNode.ReloadLevel()

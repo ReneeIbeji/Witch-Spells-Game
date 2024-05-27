@@ -3,7 +3,7 @@ extends Node
 
 var state_machine : StateMachine = null
 
-func enter() -> void:
+func enter(values : Dictionary) -> void:
 	pass
 
 func handle_input(event : InputEvent) -> void:

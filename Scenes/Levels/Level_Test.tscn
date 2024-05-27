@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://c7mjmtl7ymee3"]
+[gd_scene load_steps=3 format=3 uid="uid://c7mjmtl7ymee3"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Level_Test.gd" id="1_henx2"]
+[ext_resource type="PackedScene" uid="uid://ydnglhodsxqs" path="res://Scenes/Entities/Enemies/TestEnemy/TestEnemy.tscn" id="2_tgc6b"]
 
 [node name="Test level" type="Node2D"]
+script = ExtResource("1_henx2")
+
+[node name="TestEnemy" parent="." instance=ExtResource("2_tgc6b")]
+position = Vector2(396, 303)

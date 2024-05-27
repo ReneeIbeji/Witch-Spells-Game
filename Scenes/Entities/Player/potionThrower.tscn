@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yowr31ouivqs"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Player/potionThrower.gd" id="1_5wi73"]
+
+[node name="PotionThrower" type="Node2D"]
+script = ExtResource("1_5wi73")

@@ -1,21 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdj4ycw2kror"]
+[gd_scene load_steps=8 format=3 uid="uid://bdj4ycw2kror"]
 
 [ext_resource type="PackedScene" uid="uid://c7mjmtl7ymee3" path="res://Scenes/Levels/Level_Test.tscn" id="1_4mkpd"]
 [ext_resource type="Script" path="res://Scenes/!Main/main.gd" id="1_17umb"]
+[ext_resource type="Script" path="res://Scenes/!Main/World.gd" id="2_6t35p"]
 [ext_resource type="PackedScene" uid="uid://ddqbu6qtmex1o" path="res://Scenes/Entities/Player/player.tscn" id="2_xcsgu"]
+[ext_resource type="Script" path="res://Scenes/!Main/LevelSystem/LevelResource.gd" id="3_elp0w"]
+[ext_resource type="PackedScene" uid="uid://qtegl5v0wipi" path="res://Scenes/!Main/GameOverlay.tscn" id="5_iio0l"]
+
+[sub_resource type="Resource" id="Resource_xnjf0"]
+script = ExtResource("3_elp0w")
+LevelScene = ExtResource("1_4mkpd")
+startPoint = Vector2(600, 600)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_17umb")
+testLevel = SubResource("Resource_xnjf0")
 
 [node name="World" type="Node2D" parent="."]
+script = ExtResource("2_6t35p")
 
 [node name="Test level" parent="World" instance=ExtResource("1_4mkpd")]
 
 [node name="Player" parent="World" instance=ExtResource("2_xcsgu")]
-position = Vector2(712, 345)
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="GameOverlay" parent="GUI" instance=ExtResource("5_iio0l")]
+layout_mode = 1
+
+[connection signal="ready" from="World/Test level" to="." method="_on_test_level_ready"]
