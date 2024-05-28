@@ -33,7 +33,7 @@ func hitEntity(entity : Entity) -> void:
 	entity.HealthSystem.impactHealth(attack)
 
 func _on_splash_collision_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	if(body is Entity):
+	if(body.is_in_group("Entity")):
 		var entity : Entity = body as Entity
 		hitEntity(entity)
 		addEntityToZone(entity)

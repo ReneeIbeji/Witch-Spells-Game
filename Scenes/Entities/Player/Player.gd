@@ -2,7 +2,8 @@ class_name Player
 extends Entity
 
 func _ready():
-	print("player ready")
+	pass
+	
 
 func setup() -> void:
 	super.setup()
@@ -26,5 +27,4 @@ func _physics_process(delta : float) -> void:
 
 
 func playerDead() -> void:
-	print("Player died!")
 	Global.PlayerDied()

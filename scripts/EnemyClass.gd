@@ -18,4 +18,4 @@ func reset() -> void:
 	print(position)
 
 func killed() -> void:
-	hide()
+	queue_free()

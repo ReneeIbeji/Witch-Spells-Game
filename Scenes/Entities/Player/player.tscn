@@ -13,7 +13,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2mbq"]
 size = Vector2(99, 91)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Entity"]]
 z_index = 3
 script = ExtResource("1_02c8r")
 
@@ -41,4 +41,4 @@ script = ExtResource("6_rxkab")
 
 [node name="EntityHealth" type="Node" parent="."]
 script = ExtResource("9_y64nf")
-MAXHEALTH = 20
+MAXHEALTH = 40

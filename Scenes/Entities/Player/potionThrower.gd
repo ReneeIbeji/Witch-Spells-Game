@@ -6,7 +6,7 @@ extends Node
 func _ready() -> void:
 	var entity : Entity = get_parent() as Entity
 	entity.PotionThrowerSystem = self
-	print("Potion thrower ready")
+
 
 func throw(direction : Vector2) -> void:
 	var thisPotion = testPotion.instantiate()

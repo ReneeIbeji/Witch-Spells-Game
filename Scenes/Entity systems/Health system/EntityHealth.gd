@@ -22,7 +22,6 @@ func changeCurrentHealth(value : int) -> void:
 func _ready():
 	var entity : Entity = get_parent() as Entity
 	entity.HealthSystem = self
-	print("health ready")
 
 func setup() -> void:
 	setCurrentHealth(MAXHEALTH)
@@ -31,7 +30,6 @@ func setup() -> void:
 func impactHealth(attack : Attack) -> void:
 	if(entityDead): return
 	changeCurrentHealth(attack.HealthChange)
-	print("health: " + str(health))
 	checkDeath()
 
 

@@ -20,6 +20,13 @@ config/icon="res://icon.png"
 Global="*res://Scenes/!Main/Singletons/Global.tscn"
 GameVariables="*res://scripts/GameVariables.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/size/resizable=false
+
 [file_customization]
 
 folder_colors={

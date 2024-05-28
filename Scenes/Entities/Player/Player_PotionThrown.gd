@@ -1,9 +1,8 @@
 extends State
 
 func enter(values : Dictionary) -> void:
-	print(values["Direction"])
 	GameVariables.PlayerNode.PotionThrowerSystem.throw(values["Direction"])
-	GameVariables.PlayerNode.knockback(values["Direction"] * -1,4,1)
+	GameVariables.PlayerNode.knockback(values["Direction"] * -1,5,1)
 	var countdown = get_tree().create_timer(3)
 	countdown.timeout.connect(cooldownEnd)
 

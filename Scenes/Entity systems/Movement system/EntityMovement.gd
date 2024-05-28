@@ -10,7 +10,6 @@ var movementDirection : Vector2
 func _ready() -> void:
 	var entity : Entity = get_parent() as Entity
 	entity.MovementSystem = self
-	print("Entity Movement ready")
 
 func reset() -> void:
 	movementDirection = Vector2.ZERO
