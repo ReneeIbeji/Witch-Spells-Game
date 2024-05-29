@@ -9,7 +9,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var currentPotion : int = GameVariables.PlayerNode.PotionThrowerSystem.currentPotion
+	if currentPotion == 0:
+		$PotionLabel.text = "Next Potion: Heal"
+	else:
+		$PotionLabel.text = "Next Potion: Hurt"
+	
+	$ScoreLabel.text = "Score: " + str(GameVariables.score)
 
 func connectUIToGame() -> void:
 	GameVariables.PlayerNode.HealthSystem.HealthChanged.connect(updatePlayerHealth)

@@ -2,6 +2,9 @@ class_name EntityHealth
 extends Node
 
 signal EntityDied
+signal EntityHeal
+signal EntityHurt
+
 signal HealthChanged(newHealth : int)
 
 @export var MAXHEALTH : int
@@ -13,7 +16,7 @@ func getCurrentHealth() -> int:
 
 func setCurrentHealth(value : int) -> void:
 	health = value
-	clamp(health, 0, MAXHEALTH)
+	health = clamp(health, 0, MAXHEALTH)
 	HealthChanged.emit(health)
 
 func changeCurrentHealth(value : int) -> void:
@@ -29,6 +32,12 @@ func setup() -> void:
 
 func impactHealth(attack : Attack) -> void:
 	if(entityDead): return
+	
+	if(attack.HealthChange > 0):
+		emit_signal("EntityHeal")
+	elif (attack.HealthChange < 0):
+		emit_signal("EntityHurt")
+	
 	changeCurrentHealth(attack.HealthChange)
 	checkDeath()
 

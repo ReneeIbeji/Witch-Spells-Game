@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddqbu6qtmex1o"]
+[gd_scene load_steps=12 format=3 uid="uid://ddqbu6qtmex1o"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/Player/Player.gd" id="1_02c8r"]
 [ext_resource type="Texture2D" uid="uid://b2d8chun5wo47" path="res://icon.png" id="1_wc45e"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://yowr31ouivqs" path="res://Scenes/Entities/Player/potionThrower.tscn" id="4_n2kfp"]
 [ext_resource type="PackedScene" uid="uid://uca5j0sqca4w" path="res://Scenes/Entities/Player/Potions/testPotion.tscn" id="5_2en5c"]
 [ext_resource type="Script" path="res://Scenes/Entities/Player/Player_Normal.gd" id="5_p8y61"]
+[ext_resource type="PackedScene" uid="uid://bgvujvuvf1w17" path="res://Scenes/Entities/Player/Potions/testHealPotion.tscn" id="6_ngvyh"]
 [ext_resource type="Script" path="res://Scenes/Entities/Player/Player_PotionThrown.gd" id="6_rxkab"]
 [ext_resource type="Script" path="res://Scenes/Entity systems/Health system/EntityHealth.gd" id="9_y64nf"]
 
@@ -28,6 +29,7 @@ shape = SubResource("RectangleShape2D_x2mbq")
 
 [node name="PotionThrower" parent="." instance=ExtResource("4_n2kfp")]
 testPotion = ExtResource("5_2en5c")
+testHealPotion = ExtResource("6_ngvyh")
 
 [node name="Statemachine" type="Node" parent="."]
 script = ExtResource("4_8g3my")

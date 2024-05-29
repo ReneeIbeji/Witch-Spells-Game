@@ -24,8 +24,9 @@ GameVariables="*res://scripts/GameVariables.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/mode=3
 window/size/resizable=false
+window/canvas_textures/default_texture_filter=0
 
 [file_customization]
 
@@ -87,3 +88,7 @@ ACTION_THROWRIGHT={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":76,"key_label":0,"unicode":108,"echo":false,"script":null)
 ]
 }
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

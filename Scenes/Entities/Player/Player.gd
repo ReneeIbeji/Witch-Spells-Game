@@ -25,6 +25,12 @@ func _physics_process(delta : float) -> void:
 	MovementSystem.carryOutMovement(delta)
 	
 
+func entityHeal() -> void:
+	pass
+
+func entityHurt() -> void: 
+	pass
 
 func playerDead() -> void:
 	Global.PlayerDied()
+

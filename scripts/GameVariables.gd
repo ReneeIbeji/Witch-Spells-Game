@@ -7,6 +7,7 @@ var EnemyNodes : Array[Enemy]
 var WorldNode : GameWorld
 var LevelNode : Level
 var InCutscene : bool
+var score : int
 
 
 

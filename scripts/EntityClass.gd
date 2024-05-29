@@ -11,9 +11,14 @@ var HealthSystem : EntityHealth
 var MovementSystem : EntityMovement
 var PotionThrowerSystem : PotionThrower
 
+var hurtEffect : PackedScene = preload("res://Scenes/Effects/hurtEffect.tscn")
+var healEffect : PackedScene = preload("res://Scenes/Effects/healEffect.tscn")
+
 func setup() -> void:
 	if(HealthSystem):
 		HealthSystem.setup()
+		HealthSystem.EntityHurt.connect(entityHurt)
+		HealthSystem.EntityHeal.connect(entityHeal)
 		
 
 func reset() -> void:
@@ -22,6 +27,16 @@ func reset() -> void:
 	
 	if(MovementSystem):
 		MovementSystem.reset()
+
+func entityHurt() -> void:
+	var effect : Node2D = hurtEffect.instantiate()
+	effect.position = position
+	get_parent().add_child(effect)
+
+func entityHeal() -> void:
+	var effect : Node2D = healEffect.instantiate()
+	effect.position = position
+	get_parent().add_child(effect)
 
 func knockback(direction : Vector2, force : float, delta : float) -> void:
 	MovementSystem.applyKnockback(direction, force)

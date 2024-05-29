@@ -19,6 +19,7 @@ func LoadLevel(levelData : LevelData) -> void:
 	currentLevel = levelData
 	for child in get_children():
 		child.queue_free()
+	GameVariables.score = 0
 	
 	var newPlayerScene : Player = playerScene.instantiate() as Player
 	newPlayerScene.position = levelData.startPoint
@@ -38,6 +39,7 @@ func LoadLevel(levelData : LevelData) -> void:
 func ReloadLevel() -> void:
 	for child in get_children():
 		child.queue_free()
+	GameVariables.score = 0
 	
 	var newPlayerScene : Player = playerScene.instantiate() as Player
 	newPlayerScene.position = currentLevel.startPoint

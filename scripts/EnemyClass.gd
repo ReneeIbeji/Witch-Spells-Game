@@ -18,4 +18,5 @@ func reset() -> void:
 	print(position)
 
 func killed() -> void:
+	GameVariables.score += 1
 	queue_free()

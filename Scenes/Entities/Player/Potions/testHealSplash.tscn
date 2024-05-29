@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://qeqitvy8ovcn"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Player/Potions/testSplash.gd" id="1_xkjtr"]
+[ext_resource type="Script" path="res://Scenes/Entity systems/Health system/AttackResource.gd" id="2_7qahc"]
+[ext_resource type="Texture2D" uid="uid://b2d8chun5wo47" path="res://icon.png" id="3_is0x8"]
+
+[sub_resource type="Resource" id="Resource_151t7"]
+script = ExtResource("2_7qahc")
+HealthChange = 10
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6cvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_is0x8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25eby"]
+size = Vector2(133, 133)
+
+[node name="TestHealSplash" type="Node2D"]
+z_index = 1
+script = ExtResource("1_xkjtr")
+attack = SubResource("Resource_151t7")
+
+[node name="SplashSprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.235294, 0.572549, 0.45098, 1)
+visibility_layer = 2
+sprite_frames = SubResource("SpriteFrames_f6cvd")
+
+[node name="SplashCollision" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SplashCollision"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_25eby")
+
+[connection signal="body_shape_entered" from="SplashCollision" to="." method="_on_splash_collision_body_shape_entered"]
+[connection signal="body_shape_exited" from="SplashCollision" to="." method="_on_splash_collision_body_shape_exited"]
