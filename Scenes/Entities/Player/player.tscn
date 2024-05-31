@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddqbu6qtmex1o"]
+[gd_scene load_steps=15 format=3 uid="uid://ddqbu6qtmex1o"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/Player/Player.gd" id="1_02c8r"]
 [ext_resource type="Texture2D" uid="uid://b2d8chun5wo47" path="res://icon.png" id="1_wc45e"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bgvujvuvf1w17" path="res://Scenes/Entities/Player/Potions/testHealPotion.tscn" id="6_ngvyh"]
 [ext_resource type="Script" path="res://Scenes/Entities/Player/Player_PotionThrown.gd" id="6_rxkab"]
 [ext_resource type="Script" path="res://Scenes/Entity systems/Health system/EntityHealth.gd" id="9_y64nf"]
+[ext_resource type="Script" path="res://Scenes/Entities/Player/ThrowablesQueue.gd" id="11_o3vqa"]
+[ext_resource type="Resource" uid="uid://bs14vg4x81lq8" path="res://Scenes/!Main/ThrowableSystem/throwables/HurtPotion.tres" id="12_3rinc"]
+[ext_resource type="Resource" uid="uid://dk4xqiqwsq8wa" path="res://Scenes/!Main/ThrowableSystem/throwables/HealPotion.tres" id="13_i2gwt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2mbq"]
 size = Vector2(99, 91)
@@ -44,3 +47,8 @@ script = ExtResource("6_rxkab")
 [node name="EntityHealth" type="Node" parent="."]
 script = ExtResource("9_y64nf")
 MAXHEALTH = 40
+
+[node name="ThrowablesQueue" type="Node2D" parent="."]
+script = ExtResource("11_o3vqa")
+addPotionCooldown = 5.0
+possibleThrowables = Array[Resource("res://Scenes/!Main/ThrowableSystem/ThrowableResource.gd")]([ExtResource("12_3rinc"), ExtResource("13_i2gwt")])

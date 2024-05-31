@@ -4,6 +4,7 @@ extends Node
 @export var testPotion : PackedScene
 @export var testHealPotion : PackedScene
 
+
 var currentPotion : int = potion.Hurt
 enum potion {Heal, Hurt}
 
