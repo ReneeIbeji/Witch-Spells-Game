@@ -1,7 +1,11 @@
 extends State
 
 func enter(values : Dictionary) -> void:
-	GameVariables.PlayerNode.PotionThrowerSystem.throw(values["Direction"])
+	if GameVariables.PlayerNode.throwablesQueue.queueEmpty():
+		cooldownEnd()
+		return
+	var nextThrowableData = (GameVariables.PlayerNode as Player).throwablesQueue.getNextThrowable()
+	GameVariables.PlayerNode.PotionThrowerSystem.throw(nextThrowableData,values["Direction"])
 	GameVariables.PlayerNode.knockback(values["Direction"] * -1,5,1)
 	var countdown = get_tree().create_timer(3)
 	countdown.timeout.connect(cooldownEnd)

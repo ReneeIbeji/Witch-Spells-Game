@@ -9,11 +9,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var currentPotion : int = GameVariables.PlayerNode.PotionThrowerSystem.currentPotion
-	if currentPotion == 0:
-		$PotionLabel.text = "Next Potion: Heal"
+	
+	if(!GameVariables.PlayerNode.throwablesQueue.queueEmpty()):
+		var potionName : String = GameVariables.PlayerNode.throwablesQueue.previewNextThrowable().throwableName
+		$PotionLabel.text = "Next potion: " + potionName
 	else:
-		$PotionLabel.text = "Next Potion: Hurt"
+		$PotionLabel.text = "Next potion: None"
 	
 	$ScoreLabel.text = "Score: " + str(GameVariables.score)
 

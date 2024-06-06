@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="throwablesData" load_steps=3 format=3 uid="uid://dk4xqiqwsq8wa"]
+[gd_resource type="Resource" script_class="throwableData" load_steps=3 format=3 uid="uid://dk4xqiqwsq8wa"]
 
 [ext_resource type="Script" path="res://Scenes/!Main/ThrowableSystem/ThrowableResource.gd" id="1_2bx0y"]
 [ext_resource type="PackedScene" uid="uid://bgvujvuvf1w17" path="res://Scenes/Entities/Player/Potions/testHealPotion.tscn" id="2_662yi"]

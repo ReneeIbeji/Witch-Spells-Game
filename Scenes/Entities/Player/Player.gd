@@ -1,7 +1,7 @@
 class_name Player
 extends Entity
 
-var thowablesQueue : ThrowablesQueue
+var throwablesQueue : ThrowablesQueue
 
 
 func _ready():
@@ -11,7 +11,7 @@ func _ready():
 func setup() -> void:
 	super.setup()
 	HealthSystem.EntityDied.connect(playerDead)
-	thowablesQueue.startPotionQueueing()
+	throwablesQueue.startThrowableQueuing()
 
 
 func _physics_process(delta : float) -> void:

@@ -14,12 +14,8 @@ func _ready() -> void:
 	entity.PotionThrowerSystem = self
 
 
-func throw(direction : Vector2) -> void:
-	var thisPotion : Potion
-	if currentPotion == potion.Hurt:
-		thisPotion = testPotion.instantiate()
-	elif currentPotion == potion.Heal:
-		thisPotion = testHealPotion.instantiate()
+func throw(throwable : throwableData, direction : Vector2) -> void:
+	var thisPotion : Throwable = throwable.throwableScene.instantiate()
 	
 	thisPotion.position = get_parent().position
 	thisPotion.setDirection(direction)
